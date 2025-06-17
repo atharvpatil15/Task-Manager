@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 
-const port = 8080;
+const port = process.env.port || 8080;
 const path = require("path");
 app.use(express.json());
 
