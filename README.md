@@ -12,7 +12,7 @@ A fully responsive and powerful Task Manager web application built with **Node.j
 
 ## 🚀 Live Preview
 
-> Coming soon 
+https://task-manager-n2pr.onrender.com
 
 ---
 
