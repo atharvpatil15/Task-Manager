@@ -32,6 +32,9 @@ let tasks = [
     content: "to complete the homw work of the classes",
   },
 ];
+app.get("/", (req, res) => {
+  res.redirect("/tasks"); // or res.send("Welcome") or res.render("home.ejs")
+});
 
 app.get("/tasks", (req, res) => {
   res.render("index.ejs", { tasks });
