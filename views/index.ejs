@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <% for(let task of tasks) { %>
+        <div class="task">
+            <h3 class="title"><%=task.title %></h3>
+            <h4 class="content"><%=task.content %></h4>
+            <a href="/tasks/<%= task.id %>" id="see-details">See details</a>
+            <a href="/tasks/<%= task.id %>/edit" id="edit">Edit</a>
+            <form action="/tasks/<%=task.id%>?_method=Delete" id="delete" method="post">
+                <button>Delete</button>
+            </form>
+        </div>
+    <% } %>
+
+    <a href="http://localhost:8080/tasks/new" id="Create">Create task</a>
+</body>
+</html>

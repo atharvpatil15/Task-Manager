@@ -1,0 +1,316 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* Main form container */
+form {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    
+    animation: slideInScale 0.6s ease forwards;
+}
+
+/* Decorative top border */
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+/* Form title effect */
+form::after {
+    content: 'Create New Task';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Input field styling */
+input[type="text"] {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #667eea;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+input[type="text"]::placeholder {
+    color: #95a5a6;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+/* Textarea styling */
+textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    background-color: #f8f9fa;
+    resize: vertical;
+    min-height: 150px;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+textarea::placeholder {
+    color: #95a5a6;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+/* Submit button */
+button {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button ripple effect */
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+button:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+    outline-offset: 2px;
+}
+
+/* Remove default br spacing */
+br {
+    display: none;
+}
+
+/* Animations */
+@keyframes slideInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Floating label effect */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group input,
+.input-group textarea {
+    margin-bottom: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    form {
+        padding: 2rem;
+        max-width: 400px;
+    }
+    
+    form::after {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+    
+    input[type="text"],
+    textarea {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+    
+    textarea {
+        min-height: 120px;
+        margin-bottom: 1.5rem;
+    }
+    
+    button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    
+    form {
+        padding: 1.5rem;
+    }
+    
+    form::after {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem;
+    }
+    
+    input[type="text"],
+    textarea {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    textarea {
+        min-height: 100px;
+    }
+    
+    button {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading state */
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+button:disabled:hover {
+    transform: none;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    input[type="text"],
+    textarea {
+        border-width: 3px;
+    }
+    
+    button {
+        border: 2px solid white;
+    }
+}
+
+/* Focus visible for better keyboard navigation */
+input[type="text"]:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
